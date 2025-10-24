@@ -3,7 +3,9 @@
 import pandas as pd
 
 def growing_municipalities(df):
-    pass
+    totalSize = df.shape[0]
+    growing_municipalities = df[df['Population change from the previous year, %'] > 0].shape[0]
+    return growing_municipalities / totalSize
 
 def main():
     df = pd.read_csv('src/municipal.tsv', sep='\t', index_col=0)
@@ -14,3 +16,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
